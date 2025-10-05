@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIMS - PG Medical Student Registration 2025-26</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid #e0e0e0;
+            max-width: 700px;
+            width: 100%;
+            padding: 30px;
+            margin: 20px;
+            animation: cardFadeIn 1s ease-in-out;
+        }
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .header {
+            background: linear-gradient(90deg, #1e40af, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            margin: -30px -30px 20px;
+            border-bottom: 1px solid #1e40af;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+        h2 {
+            color: #1f2937;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            padding-bottom: 5px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid transparent;
+            background-clip: text;
+        }
+        label {
+            display: block;
+            margin: 5px 0 3px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 0.95em;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        input:hover, select:hover, textarea:hover {
+            border-color: #2563eb;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+            outline: none;
+        }
+        .error-highlight {
+            border: 3px solid #dc2626 !important;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .error {
+            color: #dc2626;
+            font-size: 0.8em;
+            display: none;
+            margin-bottom: 10px;
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .uk-message {
+            color: #dc2626;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+        button {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 15px 0;
+            transition: transform 0.2s, background 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #1e40af, #2563eb);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .radio-group, .checkbox-group {
+            margin-bottom: 12px;
+        }
+        .radio-group input {
+            width: auto;
+            margin-right: 8px;
+        }
+        .hidden {
+            display: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .modal-content button {
+            margin: 10px;
+        }
+        .success-message {
+            text-align: center;
+            color: #16a34a;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            .card { padding: 20px; margin: 10px; }
+            .header h1 { font-size: 1.8em; }
+            .header p { font-size: 1em; }
+            h2 { font-size: 1.3em; }
+            input, select, textarea { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>Himalayan Institute of Medical Sciences (HIMS)</h1>
+            <p>Postgraduate Student Registration (MD/MS Batch 2025-26)</p>
+        </div>
+        <p style="text-align: center; color: #1f2937;">We’ve made this form concise for your convenience. Please provide accurate details.</p>
+
+        <!-- NEET PG Details -->
+        <h2>NEET PG 2025 Details</h2>
+        <label for="neetRoll">NEET PG Roll Number*:</label>
+        <input type="text" id="neetRoll" pattern="\d{10}" required aria-required="true" placeholder="10-digit number">
+        <span class="error" id="neetRollError">Enter exactly 10 digits.</span>
+        <label for="neetAIR">NEET PG 2025 All India Rank (AIR)*:</label>
+        <input type="text" id="neetAIR" pattern="\d+" required aria-required="true" placeholder="e.g., 1234">
+        <span class="error" id="neetAIRError">Enter a valid numeric rank.</span>
+        <label for="course">Course Opted/Allotted*:</label>
+        <select id="course" required aria-required="true">
+            <option value="">Select...</option>
+            <option>MD Anaesthesiology</option>
+            <option>MD Pathology</option>
+            <option>MD General Medicine</option>
+            <option>MD Paediatrics</option>
+            <option>MD Radiodiagnosis</option>
+            <option>MD Dermatology, Venereology & Leprosy</option>
+            <option>MD Psychiatry</option>
+            <option>MD Community Medicine</option>
+            <option>MD Microbiology</option>
+            <option>MD Pharmacology</option>
+            <option>MD Physiology</option>
+            <option>MD Biochemistry</option>
+            <option>MD Anatomy</option>
+            <option>MS General Surgery</option>
+            <option>MS Orthopaedics</option>
+            <option>MS Obstetrics & Gynaecology</option>
+            <option>MS Ophthalmology</option>
+            <option>MS Otorhinolaryngology (ENT)</option>
+            <option>MD Emergency Medicine</option>
+            <option>MD Radiation Oncology</option>
+            <option>MD Respiratory Medicine</option>
+            <option>MD Immuno Hematology & Blood Transfusion</option>
+            <option>Other</option>
+        </select>
+        <input type="text" id="otherCourse" class="hidden" placeholder="Specify other course" aria-hidden="true">
+
+        <!-- Personal Information -->
+        <h2>Personal Information</h2>
+        <label for="name">Full Name*:</label><input type="text" id="name" required aria-required="true" oninput="this.value = this.value.toUpperCase()">
+        <label for="fatherName">Father’s Name*:</label><input type="text" id="fatherName" required aria-required="true" oninput="this.value = this.value.toUpperCase()">
+        <label for="motherName">Mother’s Name*:</label><input type="text" id="motherName" required aria-required="true" oninput="this.value = this.value.toUpperCase()">
+        <label>Gender*:</label>
+        <div class="radio-group">
+            <input type="radio" name="gender" value="Male" required aria-required="true"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+        <label for="marital">Marital Status*:</label>
+        <select id="marital" required aria-required="true">
+            <option value="">Select...</option>
+            <option>Unmarried</option>
+            <option>Married</option>
+            <option>Other</option>
+        </select>
+        <label for="dob">Date of Birth*:</label><input type="date" id="dob" required aria-required="true">
+        <label for="religion">Religion*:</label>
+        <select id="religion" required aria-required="true">
+            <option value="">Select...</option>
+            <option>Hindu</option>
+            <option>Muslim</option>
+            <option>Sikh</option>
+            <option>Christian</option>
+            <option>Buddhist</option>
+            <option>Jain</option>
+            <option>Parsi</option>
+            <option>Other</option>
+        </select>
+        <input type="text" id="otherReligion" class="hidden" placeholder="Specify other religion" aria-hidden="true">
+        <label for="category">Category/Caste*:</label>
+        <select id="category" required aria-required="true">
+            <option value="">Select...</option>
+            <option>General</option>
+            <option>OBC</option>
+            <option>SC</option>
+            <option>ST</option>
+            <option>EWS</option>
+            <option>Other</option>
+        </select>
+        <input type="text" id="otherCategory" class="hidden" placeholder="Specify other category" aria-hidden="true">
+        <label for="blood">Blood Group*:</label>
+        <select id="blood" required aria-required="true">
+            <option value="">Select...</option>
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            <option>Unknown</option>
+        </select>
+        <label for="pan">PAN Card Number*:</label><input type="text" id="pan" required aria-required="true" placeholder="e.g., ABC12 3456 D" maxlength="12" oninput="formatPAN(this)">
+        <span class="error" id="panError">Enter a valid PAN (10 characters).</span>
+        <label for="aadhar">Aadhaar Number*:</label><input type="text" id="aadhar" pattern="\d{4}\s\d{4}\s\d{4}" required aria-required="true" placeholder="e.g., 1234 5678 9012" maxlength="14" oninput="formatAadhaar(this)">
+        <span class="error" id="aadharError">Enter exactly 12 digits (e.g., 1234 5678 9012).</span>
+        <label for="domicile">Domicile of State*:</label>
+        <select id="domicile" required aria-required="true">
+            <option value="">Select...</option>
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+            <option>Andaman and Nicobar Islands</option>
+            <option>Chandigarh</option>
+            <option>Dadra and Nagar Haveli and Daman and Diu</option>
+            <option>Delhi</option>
+            <option>Jammu and Kashmir</option>
+            <option>Ladakh</option>
+            <option>Lakshadweep</option>
+            <option>Puducherry</option>
+            <option>Other</option>
+        </select>
+        <input type="text" id="otherDomicile" class="hidden" placeholder="Specify other domicile (e.g., country)" aria-hidden="true">
+
+        <!-- Contact Information -->
+        <h2>Contact Information</h2>
+        <label for="mobile">Mobile Number*:</label><input type="tel" id="mobile" pattern="\d{10}" required aria-required="true" placeholder="10-digit number">
+        <span class="error" id="mobileError">Enter exactly 10 digits.</span>
+        <label>Is this your WhatsApp Number?*:</label>
+        <div class="radio-group">
+            <input type="radio" name="isWhatsApp" value="yes" required aria-required="true" onclick="toggleWhatsApp()"> Yes
+            <input type="radio" name="isWhatsApp" value="no" onclick="toggleWhatsApp()"> No
+        </div>
+        <input type="tel" id="whatsapp" class="hidden" pattern="\d{10}" placeholder="10-digit WhatsApp number" aria-hidden="true">
+        <span class="error" id="whatsappError">Enter exactly 10 digits.</span>
+        <label for="email">Email Address*:</label><input type="email" id="email" required aria-required="true" placeholder="example@domain.com">
+        <span class="error" id="emailError">Email must include '@' symbol.</span>
+        <label for="fatherContact">Father’s Contact Number*:</label><input type="tel" id="fatherContact" pattern="\d{10}" required aria-required="true" placeholder="10-digit number">
+        <span class="error" id="fatherContactError">Enter exactly 10 digits.</span>
+        <label for="motherContact">Mother’s Contact Number*:</label><input type="tel" id="motherContact" pattern="\d{10}" required aria-required="true" placeholder="10-digit number">
+        <span class="error" id="motherContactError">Enter exactly 10 digits.</span>
+        <label for="fatherEmail">Father’s Email Address:</label><input type="email" id="fatherEmail" placeholder="example@domain.com">
+        <span class="error" id="fatherEmailError">Email must include '@' symbol.</span>
+        <label for="motherEmail">Mother’s Email Address:</label><input type="email" id="motherEmail" placeholder="example@domain.com">
+        <span class="error" id="motherEmailError">Email must include '@' symbol.</span>
+        <span class="error" id="parentEmailError">At least one parent’s email is required.</span>
+        <label for="remarks">Remarks on Parent Email (Optional):</label>
+        <textarea id="remarks" placeholder="If parents do not have or use email, please explain here (e.g., 'Parents do not use email')" aria-required="false"></textarea>
+
+        <!-- Address Details -->
+        <h2>Address Details</h2>
+        <label for="permHouse">Permanent House/Flat Number*:</label><input type="text" id="permHouse" required aria-required="true">
+        <label for="permCity">Permanent Village/Town/City*:</label><input type="text" id="permCity" required aria-required="true">
+        <label for="permDistrict">Permanent District*:</label><input type="text" id="permDistrict" required aria-required="true">
+        <label for="permState">Permanent State*:</label>
+        <select id="permState" required aria-required="true">
+            <option value="">Select...</option>
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+            <option>Andaman and Nicobar Islands</option>
+            <option>Chandigarh</option>
+            <option>Dadra and Nagar Haveli and Daman and Diu</option>
+            <option>Delhi</option>
+            <option>Jammu and Kashmir</option>
+            <option>Ladakh</option>
+            <option>Lakshadweep</option>
+            <option>Puducherry</option>
+        </select>
+        <label for="permPin">Permanent Pin Code*:</label><input type="text" id="permPin" pattern="\d{6}" required aria-required="true" placeholder="6-digit code">
+        <label>Is your Current Address the same as your Permanent Address?*:</label>
+        <div class="radio-group">
+            <input type="radio" name="sameAddr" value="yes" required aria-required="true" onclick="toggleCurrent()"> Yes
+            <input type="radio" name="sameAddr" value="no" onclick="toggleCurrent()"> No
+        </div>
+        <div id="currentAddr" class="hidden">
+            <label for="currHouse">Current House/Flat Number*:</label><input type="text" id="currHouse" aria-required="true">
+            <label for="currCity">Current Village/Town/City*:</label><input type="text" id="currCity" aria-required="true">
+            <label for="currDistrict">Current District*:</label><input type="text" id="currDistrict" aria-required="true">
+            <label for="currState">Current State*:</label>
+            <select id="currState" aria-required="true">
+                <option value="">Select...</option>
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+                <option>Andaman and Nicobar Islands</option>
+                <option>Chandigarh</option>
+                <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                <option>Delhi</option>
+                <option>Jammu and Kashmir</option>
+                <option>Ladakh</option>
+                <option>Lakshadweep</option>
+                <option>Puducherry</option>
+            </select>
+            <label for="currPin">Current Pin Code*:</label><input type="text" id="currPin" pattern="\d{6}" aria-required="true" placeholder="6-digit code">
+        </div>
+
+        <!-- Parental Information -->
+        <h2>Parental Information</h2>
+        <label for="fatherQual">Father’s Qualification*:</label><input type="text" id="fatherQual" required aria-required="true">
+        <label for="fatherOcc">Father’s Occupation*:</label><input type="text" id="fatherOcc" required aria-required="true">
+        <label for="motherQual">Mother’s Qualification*:</label><input type="text" id="motherQual" required aria-required="true">
+        <label for="motherOcc">Mother’s Occupation*:</label><input type="text" id="motherOcc" required aria-required="true">
+
+        <!-- Medical Council Registration -->
+        <h2>Medical Council Registration</h2>
+        <label>Registered with Uttarakhand Medical Council?*:</label>
+        <div class="radio-group">
+            <input type="radio" name="ukReg" value="yes" required aria-required="true" onclick="toggleUK()"> Yes
+            <input type="radio" name="ukReg" value="no" onclick="toggleUK()"> No
+        </div>
+        <div id="ukDetails" class="hidden">
+            <label for="ukNo">Uttarakhand Medical Council Registration Number*:</label><input type="text" id="ukNo" aria-required="true">
+        </div>
+        <div id="otherReg" class="hidden">
+            <label for="otherCouncilName">Medical Council Name*:</label>
+            <select id="otherCouncilName" aria-required="true">
+                <option value="">Select...</option>
+                <option>Andhra Pradesh Medical Council</option>
+                <option>Arunachal Pradesh Medical Council</option>
+                <option>Assam Medical Council</option>
+                <option>Bihar Medical Council</option>
+                <option>Chhattisgarh Medical Council</option>
+                <option>Goa Medical Council</option>
+                <option>Gujarat Medical Council</option>
+                <option>Haryana Medical Council</option>
+                <option>Himachal Pradesh Medical Council</option>
+                <option>Jharkhand Medical Council</option>
+                <option>Karnataka Medical Council</option>
+                <option>Kerala Medical Council</option>
+                <option>Madhya Pradesh Medical Council</option>
+                <option>Maharashtra Medical Council</option>
+                <option>Manipur Medical Council</option>
+                <option>Meghalaya Medical Council</option>
+                <option>Mizoram Medical Council</option>
+                <option>Nagaland Medical Council</option>
+                <option>Odisha Medical Council</option>
+                <option>Punjab Medical Council</option>
+                <option>Rajasthan Medical Council</option>
+                <option>Sikkim Medical Council</option>
+                <option>Tamil Nadu Medical Council</option>
+                <option>Telangana Medical Council</option>
+                <option>Tripura Medical Council</option>
+                <option>Uttar Pradesh Medical Council</option>
+                <option>West Bengal Medical Council</option>
+                <option>Delhi Medical Council</option>
+                <option>Jammu & Kashmir Medical Council</option>
+                <option>Puducherry Medical Council</option>
+            </select>
+            <label for="otherCouncilNo">Registration Number*:</label><input type="text" id="otherCouncilNo" aria-required="true">
+            <p class="uk-message">Kindly register with the Uttarakhand Medical Council at the earliest opportunity.</p>
+        </div>
+
+        <!-- Academic Background -->
+        <h2>Academic Background</h2>
+        <label for="mbbsCollege">MBBS College Name*:</label><input type="text" id="mbbsCollege" required aria-required="true">
+        <label for="mbbsUniv">MBBS University Name*:</label><input type="text" id="mbbsUniv" required aria-required="true">
+        <label for="internYear">Internship Completion Year*:</label><input type="text" id="internYear" pattern="\d{4}" required aria-required="true" placeholder="e.g., 2023">
+        <span class="error" id="internYearError">Enter a valid 4-digit year.</span>
+
+        <button type="button" onclick="showDeclaration()">Submit Registration</button>
+
+        <!-- Declaration Modal -->
+        <div id="declarationModal" class="modal">
+            <div class="modal-content">
+                <h2>Declaration</h2>
+                <p>I certify that all information provided by me in the form is true, accurate, and complete. I am solely responsible for its accuracy and will inform the institution of any changes or corrections needed.</p>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="modalDeclare" required aria-required="true">
+                    <label for="modalDeclare">I agree to the declaration</label>
+                </div>
+                <button onclick="confirmSubmission()">Confirm</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Success Message and Feedback -->
+        <div id="successSection" class="hidden">
+            <p class="success-message">Thank you! The information submitted by you has been recorded successfully.</p>
+            <label for="feedback">Rate Your Experience (1-5)*:</label>
+            <select id="feedback" required aria-required="true">
+                <option value="">Select...</option>
+                <option value="1">1 - Very Difficult</option>
+                <option value="2">2 - Somewhat Difficult</option>
+                <option value="3">3 - Neutral</option>
+                <option value="4">4 - Somewhat Easy</option>
+                <option value="5">5 - Very Easy</option>
+            </select>
+            <button onclick="submitFeedback()">Submit Feedback ✅</button>
+        </div>
+    </div>
+
+    <script>
+        // Format PAN Card Number
+        function formatPAN(input) {
+            let value = input.value.replace(/[^A-Z0-9]/g, '').toUpperCase();
+            if (value.length > 5) value = value.slice(0, 5) + ' ' + value.slice(5);
+            if (value.length > 10) value = value.slice(0, 10) + ' ' + value.slice(10, 11);
+            input.value = value;
+        }
+
+        // Format Aadhaar Number
+        function formatAadhaar(input) {
+            let value = input.value.replace(/[^0-9]/g, '');
+            if (value.length > 4) value = value.slice(0, 4) + ' ' + value.slice(4);
+            if (value.length > 9) value = value.slice(0, 9) + ' ' + value.slice(9, 13);
+            input.value = value;
+        }
+
+        // Conditional Logic
+        document.getElementById('course').addEventListener('change', (e) => {
+            document.getElementById('otherCourse').classList.toggle('hidden', e.target.value !== 'Other');
+            document.getElementById('otherCourse').required = e.target.value === 'Other';
+        });
+        document.getElementById('religion').addEventListener('change', (e) => {
+            document.getElementById('otherReligion').classList.toggle('hidden', e.target.value !== 'Other');
+            document.getElementById('otherReligion').required = e.target.value === 'Other';
+        });
+        document.getElementById('category').addEventListener('change', (e) => {
+            document.getElementById('otherCategory').classList.toggle('hidden', e.target.value !== 'Other');
+            document.getElementById('otherCategory').required = e.target.value === 'Other';
+        });
+        document.getElementById('domicile').addEventListener('change', (e) => {
+            document.getElementById('otherDomicile').classList.toggle('hidden', e.target.value !== 'Other');
+            document.getElementById('otherDomicile').required = e.target.value === 'Other';
+        });
+        function toggleWhatsApp() {
+            const isWhatsApp = document.querySelector('input[name="isWhatsApp"][value="yes"]:checked');
+            document.getElementById('whatsapp').classList.toggle('hidden', !!isWhatsApp);
+            document.getElementById('whatsapp').required = !isWhatsApp;
+        }
+        function toggleCurrent() {
+            const isSame = document.querySelector('input[name="sameAddr"][value="yes"]:checked');
+            const currentAddr = document.getElementById('currentAddr');
+            currentAddr.classList.toggle('hidden', !!isSame);
+            currentAddr.querySelectorAll('input, select').forEach(el => el.required = !isSame);
+        }
+        function toggleUK() {
+            const isUK = document.querySelector('input[name="ukReg"][value="yes"]:checked');
+            document.getElementById('ukDetails').classList.toggle('hidden', !isUK);
+            document.getElementById('otherReg').classList.toggle('hidden', !!isUK);
+            document.getElementById('ukNo').required = !!isUK;
+            document.getElementById('otherCouncilName').required = !isUK;
+            document.getElementById('otherCouncilNo').required = !isUK;
+        }
+
+        // Validation
+        function validateForm() {
+            let isValid = true;
+            const inputs = document.querySelectorAll('input[required]:not(.hidden input), select[required]:not(.hidden select), textarea[required]:not(.hidden textarea)');
+            inputs.forEach(input => {
+                const error = document.getElementById(`${input.id}Error`);
+                let isInputValid = true;
+                if (!input.value || (input.pattern && !input.checkValidity())) {
+                    isInputValid = false;
+                }
+                // Custom email validation for '@' symbol
+                if (input.type === 'email' && input.value && !input.value.includes('@')) {
+                    isInputValid = false;
+                    if (error) error.textContent = "Email must include '@' symbol.";
+                }
+                if (!isInputValid) {
+                    input.classList.add('error-highlight');
+                    if (error) error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    input.classList.remove('error-highlight');
+                    if (error) error.style.display = 'none';
+                }
+            });
+            const fatherEmail = document.getElementById('fatherEmail').value;
+            const motherEmail = document.getElementById('motherEmail').value;
+            const parentEmailError = document.getElementById('parentEmailError');
+            const fatherEmailInput = document.getElementById('fatherEmail');
+            const motherEmailInput = document.getElementById('motherEmail');
+            if (!fatherEmail && !motherEmail) {
+                parentEmailError.style.display = 'block';
+                fatherEmailInput.classList.add('error-highlight');
+                motherEmailInput.classList.add('error-highlight');
+                isValid = false;
+            } else {
+                parentEmailError.style.display = 'none';
+                fatherEmailInput.classList.remove('error-highlight');
+                motherEmailInput.classList.remove('error-highlight');
+            }
+            return isValid;
+        }
+
+        // Modal Functions
+        function showDeclaration() {
+            if (validateForm()) {
+                document.getElementById('declarationModal').style.display = 'flex';
+            } else {
+                alert('Please complete all required fields correctly.');
+            }
+        }
+        function closeModal() {
+            document.getElementById('declarationModal').style.display = 'none';
+            document.getElementById('modalDeclare').checked = false;
+        }
+        async function confirmSubmission() {
+            if (document.getElementById('modalDeclare').checked) {
+                const formData = {};
+                document.querySelectorAll('input, select, textarea').forEach(el => {
+                    if (el.value && !el.classList.contains('hidden') && (el.type !== 'radio' || el.checked)) {
+                        formData[el.id] = el.value;
+                    }
+                });
+                formData.declare = 'true';
+                console.log('Submitting form data:', formData); // Debug: Log form data
+                try {
+                    const response = await fetch('YOUR_APPS_SCRIPT_URL', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    console.log('Response status:', response.status); // Debug: Log response status
+                    const result = await response.json();
+                    console.log('Response result:', result); // Debug: Log response result
+                    if (result.status === 'success') {
+                        console.log('Form Data:', formData);
+                        document.querySelector('.card').innerHTML = document.getElementById('successSection').outerHTML;
+                        document.getElementById('successSection').classList.remove('hidden');
+                    } else {
+                        throw new Error('Submission failed: ' + (result.message || 'Unknown error'));
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error); // Debug: Log error
+                    alert('Error submitting form: ' + error.message + '. Please try again or check the console for details.');
+                }
+                closeModal();
+            } else {
+                alert('Please agree to the declaration.');
+            }
+        }
+        async function submitFeedback() {
+            const feedback = document.getElementById('feedback').value;
+            if (!feedback) {
+                alert('Please select a feedback rating.');
+                return;
+            }
+            const formData = { feedback };
+            console.log('Submitting feedback:', formData); // Debug: Log feedback data
+            try {
+                const response = await fetch('YOUR_APPS_SCRIPT_URL', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                console.log('Feedback response status:', response.status); // Debug: Log response status
+                const result = await response.json();
+                console.log('Feedback response result:', result); // Debug: Log response result
+                if (result.status === 'success') {
+                    alert('Feedback submitted successfully! Thank you.');
+                    document.getElementById('successSection').innerHTML = '<p class="success-message">Thank you! Feedback recorded. ✅</p>';
+                } else {
+                    throw new Error('Feedback submission failed: ' + (result.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Feedback submission error:', error); // Debug: Log error
+                alert('Error submitting feedback: ' + error.message + '. Please try again or check the console for details.');
+            }
+        }
+    </script>
+</body>
+</html>
